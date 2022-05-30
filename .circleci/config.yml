@@ -1,6 +1,13 @@
 version: 2
-one:
+jobs: # we now have TWO jobs, so that a workflow can coordinate them!
+  one: # This is our first job.
+    one:
   - id: 1
     name: franc
   - id: 11
     name: Tom
+        
+    steps:
+      - checkout # this pulls code down from GitHub
+      - run: echo "A first hello" # This prints "A first hello" to stdout.
+      - run: sleep 25 # a command telling the job to "sleep" for 25 seconds.
